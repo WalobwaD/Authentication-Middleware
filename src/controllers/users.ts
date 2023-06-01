@@ -1,5 +1,5 @@
 import express from "express"
-import {getUsers} from "../db/users"
+import {getUsers, deleteUser} from "../db/users"
 
 const getAllUsers = async (req: express.Request, res: express.Response)=>{
     try {
@@ -13,6 +13,20 @@ const getAllUsers = async (req: express.Request, res: express.Response)=>{
     }
 }
 
+const DeleteUser = async(req: express.Request, res:express.Response)=>{
+    try{
+
+        const { id } = req.params
+
+        const deletedUser = await deleteUser(id)
+        return res.json(deletedUser)
+    } catch(error) {
+        console.log(error)
+        return res.sendStatus(500)
+    }
+}
+
 export {
-    getAllUsers
+    getAllUsers,
+    DeleteUser
 }
