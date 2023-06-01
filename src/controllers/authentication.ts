@@ -23,7 +23,7 @@ const login = async (req: express.Request, res:express.Response)=>{
     existingUser.authentication.sessionToken = authentication(salt, existingUser._id.toString())
     await existingUser.save()
 
-    res.cookie('sesstionToken', existingUser.authentication.sessionToken, {domain:'localhost', path: '/' })
+    res.cookie('sessionToken', existingUser.authentication.sessionToken, {domain:'localhost', path: '/' })
     return res.status(200).json(existingUser).end()
 }
 

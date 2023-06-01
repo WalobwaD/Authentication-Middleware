@@ -23,7 +23,7 @@ server.listen(8080, ()=>{
     console.log("Server running on http://localhost:8080/")
 })
 
-const mongoURL = ''//TODO: Add mongo url
+const mongoURL = 'mongodb+srv://walobwadan:upL3aFMAA57c3UTo@cluster0.nk8b58z.mongodb.net/?retryWrites=true&w=majority'//TODO: Add mongo url
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoURL)
     .then(() => console.log('MongoDB Connected'))
